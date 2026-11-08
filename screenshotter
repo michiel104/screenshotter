@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# this shell script should be placed in /usr/local/bin
+#
+# the .jar file should be placed in /pub/software/screenshotter or /opt/screenshotter
+#
+# it is assumed java executable is on the path
+#
+JAR_LOCATION="/pub/software/screenshotter"
+java -Doutput.directory=$JAR_LOCATION/raw -jar $JAR_LOCATION/screenshotter.jar "$@"
