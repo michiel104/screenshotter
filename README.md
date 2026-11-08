@@ -20,8 +20,8 @@ screenshotter -t "dotJava home" -a "Michiel" dotJavaTest src/test/resources/webs
 
 ## Run anywhere
 
-If (after the mvn clean package) the target/screenshotter.jar was copied to the /pub/software/screenshotter folder, you can use the screenshotter shell script (placed in /usr/local/bin) to run the command in any directory. If the jar file was copied elsewhere, please update the shell script.
+If (after the mvn clean package) the target/screenshotter.jar was copied to the /pub/software/screenshotter folder, you can use the screenshotter shell script (place in /usr/local/bin) to run the command in any directory. If the jar file was copied elsewhere, please update the shell script.
 
-To understand the parameters, see my website at dotJava.nl which is made with Wordpress and only uses a specific part of the screen with actual information. The parameters define what part should end up in the pdf file. The website list is included in the test resources.
+To understand the parameters, see my website at [dotJava.nl](https://www.dotjava.nl) which is made with Wordpress and only uses a specific part of the screen with actual information. The parameters define what part should end up in the pdf file. The website list is included in the test resources.
 
 When run from a folder, the (temporary) screenshot jpg files are placed in the raw folder (can be overridden with the java setting -Doutput.directory=), then when the pdf is generated it's placed in the current folder. All jpg files are removed when finished.
