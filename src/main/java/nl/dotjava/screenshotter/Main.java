@@ -13,6 +13,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.Integer.parseInt;
 import static nl.dotjava.screenshotter.input.WebsiteReader.readWebsitesFromFile;
 
 /**
@@ -89,12 +90,12 @@ public class Main {
         author = null;
         creator = null;
         keywords = null;
-        width = Integer.parseInt(WIDTH);
-        height = Integer.parseInt(HEIGHT);
-        x = Integer.parseInt(START_X);
-        y = Integer.parseInt(START_Y);
-        wx = Integer.parseInt(WINDOW_WIDTH);
-        wy = Integer.parseInt(WINDOW_HEIGHT);
+        width = parseInt(WIDTH);
+        height = parseInt(HEIGHT);
+        x = parseInt(START_X);
+        y = parseInt(START_Y);
+        wx = parseInt(WINDOW_WIDTH);
+        wy = parseInt(WINDOW_HEIGHT);
         List<String> positional = new ArrayList<>();
 
         for (int i = 0; i < args.length; i++) {
@@ -111,12 +112,12 @@ public class Main {
                         case "-t" -> title = value;
                         case "-a" -> author = value;
                         case "-c" -> creator = value;
-                        case "-w" -> width = Integer.parseInt(value == null ? WIDTH : value);
-                        case "-h" -> height = Integer.parseInt(value == null ? HEIGHT : value);
-                        case "-x" ->  x = Integer.parseInt(value == null ? START_X : value);
-                        case "-y" ->  y = Integer.parseInt(value == null ? START_Y : value);
-                        case "-wx" -> wx = Integer.parseInt(value == null ? WINDOW_WIDTH : value);
-                        case "-wy" -> wy = Integer.parseInt(value == null ? WINDOW_HEIGHT : value);
+                        case "-w" -> width = parseInt(value == null ? WIDTH : value);
+                        case "-h" -> height = parseInt(value == null ? HEIGHT : value);
+                        case "-x" ->  x = parseInt(value == null ? START_X : value);
+                        case "-y" ->  y = parseInt(value == null ? START_Y : value);
+                        case "-wx" -> wx = parseInt(value == null ? WINDOW_WIDTH : value);
+                        case "-wy" -> wy = parseInt(value == null ? WINDOW_HEIGHT : value);
                         default -> keywords = value;
                     }
                 }
@@ -142,7 +143,7 @@ public class Main {
         System.out.println("""
                 Usage: java -jar screenshotter.jar [options] <project> <websites>
 
-                  <project>   name of the project (used for the output file names)
+                  <project>   name of the project (used for the output filename)
                   <websites>  file with list of websites
 
                 Options (all optional, placed before the two arguments above):
@@ -150,11 +151,11 @@ public class Main {
                   -a <author>
                   -c <creator> (original author)
                   -k <keywords>
-                  -wx <width>    windows viewport width (default 3072)
-                  -wy <height>   windows viewport height (default 1570)
+                  -wx <width>    window viewport width (default 3072)
+                  -wy <height>   window viewport height (default 1570)
+                  -x <x>         upper-left corner in viewport (x)
+                  -y <y>         upper-left corner in viewport (y)
                   -w <width>     width of the screenshot
-                  -h <height>    height of the screen
-                  -x <x>         starting left edge, measured from the left of the viewport
-                  -y <y>         starting top edge, measured from the top of the viewport""");
+                  -h <height>    height of the screenshot""");
     }
 }
